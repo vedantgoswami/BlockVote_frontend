@@ -1,0 +1,358 @@
+@font-face {
+  font-family: 'samarkan';
+  src: url('./fonts/samarkan.ttf');
+}
+*{
+  font-family: 'Sora',sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
+}
+.sidebar{
+    position: fixed;
+    margin-top: -50px;
+    left: 0;
+    height: 768px;
+    width: 78px;
+    background: #11101d;
+    padding: 6px 14px; 
+    transition: all 0.5s ease;
+    z-index: 99;
+}
+.sidebar.active{
+  width: 240px;
+
+}
+.sidebar .logo_content .logo{
+  color: #fff;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar.active .logo_content .logo{
+  opacity:  1;
+  pointer-events: none;
+}
+.logo_content .logo i{
+  font-size: 28px;
+  margin-right:5px
+}
+.logo_content .logo .logo_name{
+  font-size: 20px;
+  font-weight: 400;
+}
+.sidebar #btn{
+  
+  position: relative;
+  color: #fff;
+  left: 60%;
+  top: -42px;
+  margin-left: 20px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 40px;
+  transform: translateX(-100%);
+}
+.sidebar.active #btn{
+  left: 90%;
+ 
+}
+.sidebar #btn:hover{
+  cursor: pointer;
+}
+.sidebar ul{
+  margin-top: 20px;
+  margin-left: -30px;
+}
+.sidebar ul li{
+  height: 50px;
+  position: relative;
+  width: 100%;
+  margin: 0 5px;
+  left: -5px;
+  list-style: none;
+  line-height: 50px;
+  border-radius: 12px;
+  transition: all 0.5 ease;
+}
+.sidebar ul li:hover{
+    background: #fff;
+    color: #1d1b31;
+}
+.on{
+  background-color: #da8c44;
+  color: #fff;
+}
+.sidebar ul li .tooltip{
+  position: absolute;
+  height: 35px;
+  top: 50%;
+  transform: translateY(-50%) ;
+  border-radius: 6px;
+  width: 122px;
+  left: 20px;
+  background: #000;
+  line-height: 35px;
+  text-align: center;
+  transition: 0;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: 0s;
+}
+.sidebar ul li:hover .tooltip{
+  top: 50%;
+  opacity: 1;
+  transform: all 0.5s ease;
+
+}
+.sidebar.active ul li .tooltip{
+  display: none;
+}
+.sidebar ul li:hover .tooltip{
+  transition: 1;
+  transition: all 0.5s ease;
+  top: 50%;
+
+}
+.sidebar ul li a{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+.exit i{
+  color: #fff;
+}
+.exit span{
+  color: #fff;
+  margin-left: 20px;
+}
+.exit:hover span{
+  color:rgb(34, 34, 34);
+}
+.exit span:hover{
+  color:rgb(34, 34, 34);
+}
+.exit:hover i{
+  color:rgb(34, 34, 34);
+}
+.exit i:hover{
+  color:rgb(34, 34, 34);
+}
+.sidebar ul li a:hover{
+  color: #11101d;
+  background: #fff;
+}
+.exit a:hover{
+  color: #11101d;
+  background: #fff;
+}
+.sidebar ul li a i{
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.sidebar .link_name{
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar.active .link_name{
+  opacity: 1;
+  pointer-events: auto;
+}
+.home_content{
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 240px);
+  left: 150px;
+  align-items: center;
+  
+}
+.home_content .text{
+  align-self: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1d1b31;
+  margin-top:  12px;
+}
+
+.form{
+  position: relative;
+  width: 25rem;
+  height: 3rem;
+  margin-top: 0px;
+  margin-right: 5px;
+  overflow: visible;
+  /* padding: 10px; */
+}
+.form .input{
+  position: relative;
+  
+  width: 100%;
+  height: 100%;
+  border: 2px solid #11101d;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 1.25rem;
+  background: none;
+}
+.form .input:hover{
+  border-color: #d5e009;
+}
+.form .input:focus{
+  border-color: green;
+}
+
+.form .label{
+  position: absolute;
+  font-weight: 600;
+  left: 1rem;
+  top: 0.8rem;
+  padding: 0 0.5rem;
+  color: #11101d;
+  cursor: text;
+  transition: top 200ms ease-in,
+    left 200ms ease-in,
+    font-size 200ms ease-in;
+}
+/* .form_input:focus ~ .form_label,
+.form_input:not(:placeholder-shown)
+.form_input:not(:focus) ~ .form_label */
+.form_input:not(:placeholder-shown) ~ .form_label
+{
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+  
+  background-color: #fff;
+  
+}
+.form_input:focus ~ .form_label
+{
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+  color:orangered;
+  background-color: #fff;
+}
+.form_box{
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  border: 3px;
+  border-style:dotted;
+  border-color: black;
+  padding: 5px;
+  padding-left: 30px;
+  width: 900px;
+  height: 300px;
+}
+.icon_label{
+  font-size: 30px;
+  font-weight: bold;
+}
+.bx:hover {
+  cursor: pointer;
+}
+.selected{
+  color:aqua;
+}
+.notselected{
+  color: transparent;
+}
+.status .text{
+  align-self: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1d1b31;
+  margin-top:  12px;
+}
+.login{
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Auth-form {
+  width: 420px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+.alabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+ol {
+  font-size: 14px;
+  margin-left: 10px;
+  list-style-type: decimal;
+  color: #000;
+}
+input[type="file"]{
+  display: none;
+}
+
+.pht label{
+  color: white;
+  height: 40px;
+  width: 200px;
+  background-color: #f5af09;
+  position: relative;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "sora",;
+  margin-right: 500px;
+}
+.pht label:hover{
+  cursor: pointer;
+}
